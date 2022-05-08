@@ -124,7 +124,6 @@ document.addEventListener('keyup', function (e) {
         element.classList.remove('active')
 
     })
-
     if (e.key == 'Backspace') {
         screen.innerText = `${screen.innerText.slice(0, screen.innerText.length - 1)}`
 
@@ -149,6 +148,7 @@ document.addEventListener('keyup', function (e) {
 
     }
     console.log(screen.innerText.length)
+
 })
 
 document.querySelectorAll('.keys').forEach(function (element) {
