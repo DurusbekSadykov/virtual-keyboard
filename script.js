@@ -15,6 +15,7 @@ const container = document.querySelector('.container');
 
 container.innerHTML += `
 
+<div><h3>Изменение языка: Shift+Alt</h3></div>
 <div class="screen" id="screen"><h3 id='str'></h3></div>
 <div class="keyboard" id="keyboard"></div>
 `;
