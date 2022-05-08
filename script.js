@@ -5,6 +5,7 @@ const body = document.querySelector('body');
 
 body.innerHTML = `
 <div class="container">
+<h3>Изменение языка: Alt+Shift</h3>
 </div>
 `;
 
