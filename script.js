@@ -152,9 +152,7 @@ document.addEventListener('keyup', function (e) {
     }
     else {
         screen.textContent += `${e.key}`
-
     }
-    console.log(screen.innerText.length)
 
 })
 
@@ -166,11 +164,25 @@ document.querySelectorAll('.keys').forEach(function (element) {
     }
 })
 document.querySelectorAll('.keys').forEach(function (element) {
-    element.onmouseup = function (event) {
+    element.onmouseup = function (e) {
         let code = this.getAttribute('id');
-        this.classList.remove('active')
-
+        this.classList.remove('active');
+        let p = element.innerText;
+        if (screen.innerHTML.length % 100 == 0) {
+            screen.innerHTML += `\r`
+        } else if (p == 'Backspace') {
+            screen.innerText = `${screen.innerText.slice(0, screen.innerText.length - 1)}`
+        } else if (p == 'Enter') {
+            screen.innerHTML += `<p id='str'><p>`
+            let a = document.querySelectorAll('#str');
+            screen = a[a.length - 1]
+        } else if (p == 'Control' || p == 'Alt' || p == 'Shift' || p == 'Meta' || p == 'CapsLock') {
+            screen.textContent += ``
+        } else {
+            screen.innerHTML += p
+        }
     }
+
 })
 
 
