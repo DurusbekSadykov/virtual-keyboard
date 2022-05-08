@@ -15,13 +15,14 @@ const container = document.querySelector('.container');
 
 container.innerHTML += `
 
-<div class="screen" id="screen"></div>
+<div class="screen" id="screen"><h3 id='str'></h3></div>
 <div class="keyboard" id="keyboard"></div>
 `;
 
 
 const keyboard = document.querySelector('#keyboard');
-const screen = document.querySelector('#screen');
+let screen = document.querySelector('#str');
+const p = document.createElement('p');
 
 for (let i = 0; i < firstLine.length; i++) {
     if (firstLine[i].code == "Backspace") {
@@ -124,6 +125,10 @@ document.addEventListener('keyup', function (e) {
         element.classList.remove('active')
 
     })
+
+    if (screen.innerHTML.length % 120 == 0) {
+        screen.innerHTML += `\r`
+    }
     if (e.key == 'Backspace') {
         screen.innerText = `${screen.innerText.slice(0, screen.innerText.length - 1)}`
 
@@ -138,7 +143,9 @@ document.addEventListener('keyup', function (e) {
     } else if (e.key == 'Space') {
         screen.innerText += ` `
     } else if (e.key == 'Enter') {
-        screen.innerHTML += `<span><br></span>`
+        screen.innerHTML += `<p id='str'><p>`
+        let a = document.querySelectorAll('#str');
+        screen = a[a.length - 1]
     }
     else if (e.key == 'Control' || e.key == 'Alt' || e.key == 'Shift' || e.key == 'Meta' || e.key == 'CapsLock') {
         screen.textContent += ``
